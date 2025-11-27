@@ -101,8 +101,7 @@ If you'd prefer an animated GIF instead of an MP4 (for smaller file size), I can
 
 ### Hosted demo (Google Drive)
 
-If you prefer to host the full-quality recording externally instead of storing it in the repo, you can link to a Google Drive file. Here's the demo video hosted on Drive:
+Here's the demo video hosted on Drive:
 
 - https://drive.google.com/file/d/1jaygUmwXYWoqVP03ndFCFtmbW2xp0lpe/view?usp=drivesdk
 
-If you want this link embedded as a preview or an iframe, I can update the README to embed a clickable thumbnail or an iframe (note: Drive iframe embeds require the file to be shared publicly), or I can remove the in-repo MP4 and rely solely on this external link.
