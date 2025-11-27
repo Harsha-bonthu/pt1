@@ -1,0 +1,23 @@
+{
+  "users": [
+    { "username": "demo", "password": "password123", "name": "Demo User" }
+  ],
+  "metrics": {
+    "months": ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+    "values": [1200,1500,1400,1700,1800,2100,1950,2300,2200,2400,2600,2800]
+  },
+  "items": [
+    {"id":1,"name":"Aurora Running Shoes","status":"active","value":7514.17,"date":"2025-10-12","desc":"Lightweight daily running shoes","price_inr":7514.17,"rating":4.6,"reviews":214,"image":"assets/p1.svg"},
+    {"id":2,"name":"Cobalt Backpack","status":"pending","value":4550.75,"date":"2025-09-03","desc":"Water-resistant 20L backpack","price_inr":4550.75,"rating":4.2,"reviews":86,"image":"assets/p2.svg"},
+    {"id":3,"name":"Nimbus Wireless Earbuds","status":"active","value":10771.5,"date":"2025-11-05","desc":"Noise-cancelling true wireless","price_inr":10771.5,"rating":4.7,"reviews":541,"image":"assets/p3.svg"},
+    {"id":4,"name":"Oak Desk Lamp","status":"archived","value":3339.17,"date":"2024-12-20","desc":"Adjustable wooden desk lamp","price_inr":3339.17,"rating":4.1,"reviews":47,"image":"assets/p4.svg"},
+    {"id":5,"name":"Sunset Canvas","status":"active","value":1999.99,"date":"2025-07-21","desc":"Handmade canvas print","price_inr":1999.99,"rating":4.3,"reviews":32,"image":"assets/p5.svg"},
+    {"id":6,"name":"Zeta Notebook","status":"pending","value":89.0,"date":"2025-06-02","desc":"Premium paper notebook","price_inr":89.0,"rating":4.0,"reviews":12,"image":"assets/p6.svg"},
+    {"id":7,"name":"Eta Bluetooth Speaker","status":"active","value":610.0,"date":"2025-05-11","desc":"Compact portable speaker","price_inr":610.0,"rating":4.4,"reviews":72,"image":"assets/p7.svg"},
+    {"id":8,"name":"Theta Yoga Mat","status":"pending","value":210.0,"date":"2025-08-19","desc":"Eco-friendly yoga mat","price_inr":210.0,"rating":4.5,"reviews":41,"image":"assets/p8.svg"},
+    {"id":9,"name":"Iota Planter","status":"active","value":95.0,"date":"2025-02-01","desc":"Ceramic indoor planter","price_inr":95.0,"rating":4.0,"reviews":9,"image":"assets/p9.svg"},
+    {"id":10,"name":"Kappa Desk Organizer","status":"archived","value":12.0,"date":"2023-11-23","desc":"Minimal desk organizer","price_inr":12.0,"rating":3.9,"reviews":5,"image":"assets/p10.svg"},
+    {"id":11,"name":"Lambda Mug","status":"active","value":430.0,"date":"2025-04-04","desc":"Ceramic coffee mug","price_inr":430.0,"rating":4.2,"reviews":23,"image":"assets/p11.svg"},
+    {"id":12,"name":"Mu Stationery Set","status":"pending","value":305.0,"date":"2025-03-14","desc":"Complete stationery kit","price_inr":305.0,"rating":4.1,"reviews":18,"image":"assets/p12.svg"}
+  ]
+}

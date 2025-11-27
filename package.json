@@ -1,0 +1,18 @@
+{
+  "name": "mock-storefront",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "esbuild js/app.js --bundle --minify --outfile=dist/app.js",
+    "start": "python -m http.server 8081",
+    "dist": "node tools/build-dist.js",
+    "apply-overrides": "node tools/apply-overrides.js overrides.json",
+    "test": "npx playwright test",
+    "test:install": "npx playwright install"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "esbuild": "^0.17.0",
+    "playwright": "^1.35.0"
+  }
+}
