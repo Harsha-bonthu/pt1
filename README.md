@@ -96,3 +96,7 @@ Here's the demo video hosted on Drive:
 
 - https://drive.google.com/file/d/1jaygUmwXYWoqVP03ndFCFtmbW2xp0lpe/view?usp=drivesdk
 
+### Live demo (GitHub Pages)
+
+Visit the deployed site here: https://Harsha-bonthu.github.io/pt1/
+
