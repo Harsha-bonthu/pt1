@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Aurora Market — Product catalog and admin dashboard demo built with HTML/CSS/vanilla JS and mock JSON data for portfolio or take-home exercises." />
+  <title>Aurora Market — Product Catalog & Dashboard (Demo)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="topbar">
+      <div class="brand"><img src="assets/logo.svg" alt="Aurora Market" class="logo"/><strong style="margin-left:8px;vertical-align:middle">Aurora Market</strong><small style="margin-left:10px;color:var(--muted);font-size:.9rem">Product Catalog & Dashboard (Demo)</small></div>
+      <div class="controls">
+        <div class="profile" aria-live="polite">Hello, <span id="profileName">Guest</span></div>
+        <div class="header-actions">
+          <div class="badge" id="favoritesCount" title="Favorites">❤ 0</div>
+          <div class="badge" id="cartCount" title="Cart">🛒 0</div>
+          <button id="settingsBtn" class="btn small" aria-label="Open settings" title="Settings"><span class="material-icons">settings</span></button>
+          <button id="themeToggle" class="btn small" aria-pressed="false" title="Toggle theme"><span class="material-icons">dark_mode</span></button>
+          <button id="logoutBtn" class="btn small" hidden title="Logout">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="loginSection" class="centered">
+        <div class="card login-card">
+          <h2>Sign In</h2>
+          <form id="loginForm">
+            <label>Username
+              <input name="username" required />
+            </label>
+            <label>Password
+              <div class="password-row">
+                <input name="password" id="passwordInput" type="password" required />
+                <button id="togglePass" type="button" class="btn small">Show</button>
+              </div>
+            </label>
+            <div class="row">
+              <button class="btn primary" type="submit">Sign in</button>
+              <button type="button" id="demoBtn" class="btn">Use demo</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section id="dashboard" class="hidden">
+        <div class="hero card">
+          <div>
+            <h2>Aurora Market</h2>
+            <p class="muted">Fresh collections for everyday life</p>
+          </div>
+          <div class="hero-actions">
+            <select id="currencySelect" aria-label="Currency">
+              <option value="INR">₹ INR</option>
+              <option value="USD">$ USD</option>
+              <option value="EUR">€ EUR</option>
+            </select>
+            <div class="sort">
+              <label for="sortSelect">Sort:</label>
+              <select id="sortSelect"><option value="default">Default</option><option value="price-asc">Price: Low to High</option><option value="price-desc">Price: High to Low</option><option value="rating">Top Rated</option></select>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid cards" id="summaryCards"></div>
+        <div class="filters" role="toolbar" aria-label="Filters">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="active">Active</button>
+          <button class="chip" data-filter="pending">Pending</button>
+          <button class="chip" data-filter="archived">Archived</button>
+        </div>
+
+        <div class="panel split">
+          <div style="flex:1">
+            <div class="panel-row">
+              <h2>Monthly Metrics</h2>
+              <div class="search-row">
+                <input id="searchInput" placeholder="Search items..." />
+              </div>
+            </div>
+            <canvas id="metricsChart" height="120"></canvas>
+            <div id="productGridWrapper" class="panel" style="margin-top:16px">
+              <h2>Products</h2>
+              <div id="productGrid" class="product-grid"></div>
+            </div>
+          </div>
+          <div style="width:260px;margin-left:12px">
+            <h3>Status Breakdown</h3>
+            <canvas id="statusChart" height="260"></canvas>
+            <div style="margin-top:8px;display:flex;gap:8px;justify-content:space-between">
+              <button id="exportCsv" class="btn">Export CSV</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-row">
+            <h2>Items</h2>
+            <div class="controls-row">
+              <div class="pagination">
+                <button id="prevPage" class="btn small">Prev</button>
+                <span id="pageInfo">1</span>
+                <button id="nextPage" class="btn small">Next</button>
+              </div>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table id="itemsTable">
+              <thead>
+                <tr>
+                  <th data-key="id">ID</th>
+                  <th data-key="name">Name</th>
+                  <th data-key="status">Status</th>
+                  <th data-key="value">Value</th>
+                  <th data-key="date">Date</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="detailModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button id="closeModal" class="btn small" aria-label="Close">Close</button>
+        <h3 id="modalTitle">Item</h3>
+        <div id="modalBody"></div>
+        <div style="margin-top:10px;display:flex;gap:8px">
+          <button id="copyLink" class="btn">Copy link</button>
+          <button id="openInNew" class="btn">Open (new tab)</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="settingsModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+        <h3 id="settingsTitle">Settings</h3>
+        <div class="card">
+          <label>Items per page
+            <input id="settingPageSize" type="number" min="1" max="50" />
+          </label>
+          <label>Token expiry (minutes)
+            <input id="settingExpiry" type="number" min="1" max="1440" />
+          </label>
+          <label><input id="settingAnimations" type="checkbox" /> Enable animations</label>
+          <div class="row" style="margin-top:10px">
+            <button id="saveSettings" class="btn primary">Save</button>
+              <button id="cancelSettings" class="btn">Cancel</button>
+              <button id="resetOverrides" class="btn" title="Reset status overrides">Reset overrides</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
