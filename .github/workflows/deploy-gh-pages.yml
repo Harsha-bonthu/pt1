@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ import/pt1-demo ]
+  workflow_dispatch: {}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (esbuild)
+        run: npm run build
+
+      - name: Prepare publish directory
+        run: |
+          set -e
+          mkdir -p public/js
+          # Copy site assets to public; ignore failures if files are missing
+          cp -R index.html css assets data public/ || true
+          # Ensure the built bundle is available at the original script path
+          cp dist/app.js public/js/app.js || true
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
