@@ -90,15 +90,6 @@ This script will back up `data/mock-data.json` to `data/mock-data.json.bak` and 
 
 ## Demo recording
 
-A short recording demonstrating the app is included in this repository. You can play it directly here:
-
-<video controls width="720">
-	<source src="assets/videos/20251127-1322-22.mp4" type="video/mp4">
-	Your browser does not support the video tag. You can also download the video from `assets/videos/20251127-1322-22.mp4`.
-</video>
-
-If you'd prefer an animated GIF instead of an MP4 (for smaller file size), I can generate one and add it to the README.
-
 ### Hosted demo (Google Drive)
 
 Here's the demo video hosted on Drive:
